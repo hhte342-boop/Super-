@@ -1,0 +1,112 @@
+/* --- Global Styles & Background (သင်ပြသောပုံအတိုင်း အပြာရောင်) --- */
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.background-blue {
+    background-color: #0070B8; /* Classic Superman Blue Color */
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Superman Logo Shield Container --- */
+.superman-logo {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    /* စိန်ပုံစံ (Diamond Shape) ဖန်တီးခြင်း */
+    clip-path: polygon(50% 0%, 100% 30%, 100% 70%, 50% 100%, 0% 70%, 0% 30%);
+    background-color: #FF0000; /* အနီရောင် (Red Base) */
+    /* အနီဘောင်ပတ်လည် Glow Effect */
+    box-shadow: 0 0 50px rgba(255, 0, 0, 0.9);
+    transform: scale(0.95);
+    transition: transform 0.3s;
+}
+
+/* Hover Dynamic Effect */
+.superman-logo:hover {
+    transform: scale(1); /* ပုံကို အနည်းငယ် ချဲ့ပေးခြင်း */
+    box-shadow: 0 0 70px rgba(255, 0, 0, 1); /* Glow ပိုပြင်းစေခြင်း */
+}
+
+/* အတွင်းဘက်ဒိုင်း (အဝါ) */
+.shield-outer {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    /* အပေါ်ပိုင်း ထောင့်ချိုးများအတွက် */
+    clip-path: polygon(50% 0%, 100% 30%, 100% 70%, 50% 100%, 0% 70%, 0% 30%);
+    background-color: #FFD900; /* အဝါရောင် (Yellow Border) */
+}
+
+/* S စာလုံး နေရာ (အနီ) */
+.shield-inner {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    clip-path: inherit;
+    background-color: #FF0000; /* အဓိက Red Area */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* အလင်းရောင်ကို Logo အတွင်းမှာပဲ ထိန်းထားဖို့ */
+    /* S စာလုံး နေရာကို အဝါရောင် Glow ထပ်ပေးခြင်း */
+    box-shadow: inset 0 0 20px rgba(255, 217, 0, 0.5);
+}
+
+/* --- S Letter (S စာလုံးကို CSS ဖြင့် အနီးစပ်ဆုံး ပုံဆွဲခြင်း) --- */
+/* (ဤနေရာတွင် S ကို ပုံဆွဲရသည်မှာ အနည်းငယ် ရှုပ်ထွေးသော်လည်း Logo ၏ အသွင်အပြင်ကို အဝါရောင် Div များဖြင့် ဖန်တီးထားသည်) */
+.s-letter {
+    position: relative;
+    width: 70%;
+    height: 70%;
+    transform: scale(1.1);
+    background-color: #FFD900; /* S ရဲ့ အဝါရောင် အခြေခံ */
+    clip-path: polygon(
+        50% 0, 75% 10%, 75% 25%, 50% 30%, 25% 25%, 25% 10%, 50% 0, /* အပေါ်ထိပ်ချွန် */
+        100% 35%, 100% 65%, 50% 80%, 0% 65%, 0% 35%, 50% 50%, 
+        50% 80%, 75% 75%, 75% 90%, 50% 100%, 25% 90%, 25% 75% /* အောက်ခြေချွန် */
+    );
+    /* ရှင်းလင်းမှုအတွက် ရိုးရှင်းသော S စာလုံးကိုသာ အသုံးပြုနိုင်သည်၊ ဤသည်မှာ ပုံဆွဲထားသော S ဖြစ်သည်။ */
+}
+
+/* --- 💡 Dynamic Light Runner Effect (အလင်းပြေးခြင်း) --- */
+.light-runner {
+    position: absolute;
+    top: 0;
+    left: -100%; 
+    width: 50%; 
+    height: 100%;
+    /* အလင်းတန်း (Shine) အတွက် Gradient */
+    background: linear-gradient(
+        to right, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0.9) 50%, 
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-30deg); /* ပိုမိုပြင်းထန်သော ထောင့်ချိုးဖြင့် စောင်းခြင်း */
+    opacity: 0.8;
+    animation: run-light 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite; /* Animation ကို ပိုမို ချောမွေ့သောနှုန်းဖြင့် ပြောင်းလဲ */
+}
+
+/* 🏃‍♂️ အလင်းရောင် ရွေ့လျားမှု Animation Keyframes */
+@keyframes run-light {
+    0% {
+        left: -50%; 
+    }
+    100% {
+        left: 150%; /* Logo အပြင်ဘက်အထိ လုံးဝ ရောက်သွားစေရန် */
+    }
+}
